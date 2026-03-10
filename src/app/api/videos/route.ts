@@ -5,19 +5,19 @@ const videos = [
     id: "v1",
     title: "Introduction to AI",
     thumbnail: "",
-    embedUrl: "https://www.youtube.com/embed/JMUxmLyrhSk",
+    embedUrl: "https://www.youtube.com/embed/EGA3VB4XM9I?si=26G96QHGrosAyD1v",
   },
   {
     id: "v2",
     title: "Machine Learning Basics",
     thumbnail: "",
-    embedUrl: "https://www.youtube.com/embed/ukzFI9rgwfU",
+    embedUrl: "https://www.youtube.com/embed/EGA3VB4XM9I?si=26G96QHGrosAyD1v",
   },
   {
     id: "v3",
     title: "Web Development 101",
     thumbnail: "",
-    embedUrl: "https://www.youtube.com/embed/zJSY8tbf_ys",
+    embedUrl: "https://www.youtube.com/embed/EGA3VB4XM9I?si=26G96QHGrosAyD1v",
   },
 ];
 

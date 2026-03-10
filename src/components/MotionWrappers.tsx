@@ -18,7 +18,7 @@ export function FadeIn({ children, className = "", delay = 0 }: AnimatedSectionP
       ref={ref}
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      transition={{ duration: 1.0, delay, ease: "easeOut" }}
       className={className}
     >
       {children}
@@ -35,7 +35,75 @@ export function SlideUp({ children, className = "", delay = 0 }: AnimatedSection
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.7, delay, ease: "easeOut" }}
+      transition={{ duration: 1.2, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function ScaleIn({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+      transition={{ duration: 1.0, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function SlideInLeft({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -60 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+      transition={{ duration: 1.0, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function SlideInRight({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: 60 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+      transition={{ duration: 1.0, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function RevealSlow({ children, className = "", delay = 0 }: AnimatedSectionProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+      animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 40, filter: "blur(8px)" }}
+      transition={{ duration: 1.4, delay, ease: "easeOut" }}
       className={className}
     >
       {children}
@@ -56,7 +124,7 @@ export function StaggerContainer({ children, className = "" }: { children: React
         hidden: {},
         visible: {
           transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.15,
           },
         },
       }}
@@ -69,5 +137,5 @@ export function StaggerContainer({ children, className = "" }: { children: React
 
 export const staggerItem = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } },
 };

@@ -1,15 +1,15 @@
 "use client";
 
-import { FadeIn } from "./MotionWrappers";
+import { ScaleIn } from "./MotionWrappers";
 import { ArrowRight, Rocket } from "lucide-react";
 
 export default function FinalCTA() {
   return (
     <section className="py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeIn>
+        <ScaleIn>
           <div className="glass-card rounded-2xl p-10 sm:p-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--primary)]/5 to-[var(--secondary)]/5" />
+            <div className="absolute inset-0 bg-[var(--primary)]/5" />
             <div className="relative z-10">
               <div className="w-16 h-16 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center mx-auto mb-6">
                 <Rocket className="w-8 h-8 text-[var(--primary)]" />
@@ -29,7 +29,7 @@ export default function FinalCTA() {
               </a>
             </div>
           </div>
-        </FadeIn>
+        </ScaleIn>
       </div>
     </section>
   );

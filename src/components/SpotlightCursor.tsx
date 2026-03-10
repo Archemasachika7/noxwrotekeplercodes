@@ -11,26 +11,13 @@ export default function SpotlightCursor() {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!mounted || resolvedTheme !== "dark") return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty("--cursor-x", e.clientX + "px");
-      document.documentElement.style.setProperty("--cursor-y", e.clientY + "px");
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [resolvedTheme, mounted]);
-
   if (!mounted || resolvedTheme !== "dark") return null;
 
   return (
     <div
       className="fixed inset-0 pointer-events-none z-[1] transition-opacity duration-300"
       style={{
-        background:
-          "radial-gradient(circle 300px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(88,166,255,0.06) 0%, transparent 100%)",
+        background: "rgba(88,166,255,0.03)",
       }}
     />
   );

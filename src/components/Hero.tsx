@@ -12,7 +12,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border)] bg-[var(--muted)] text-xs font-medium text-[var(--muted-foreground)] mb-6">
               <span className="w-2 h-2 rounded-full bg-[var(--secondary)] animate-pulse" />
@@ -64,7 +64,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
             className="relative hidden lg:block"
           >
             <div className="relative glass-card rounded-xl p-6 shadow-2xl">

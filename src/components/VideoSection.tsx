@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FadeIn } from "./MotionWrappers";
+import { FadeIn, RevealSlow } from "./MotionWrappers";
 import { Play } from "lucide-react";
 
 interface Video {
@@ -39,7 +39,7 @@ export default function VideoSection() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.2}>
+        <RevealSlow delay={0.2}>
           {activeVideo && (
             <div className="max-w-4xl mx-auto">
               <div className="relative aspect-video rounded-xl overflow-hidden glass-card shadow-2xl">
@@ -53,7 +53,7 @@ export default function VideoSection() {
               </div>
             </div>
           )}
-        </FadeIn>
+        </RevealSlow>
 
         {videos.length > 1 && (
           <div className="flex gap-3 justify-center mt-8 flex-wrap">
