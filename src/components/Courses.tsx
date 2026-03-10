@@ -81,7 +81,7 @@ export default function Courses() {
               className="glass-card rounded-xl overflow-hidden group"
             >
               <div className="aspect-video bg-[var(--muted)] relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)] to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-[var(--card)] opacity-60" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-[var(--primary)]/20 flex items-center justify-center">
                     <span className="text-2xl">🎓</span>

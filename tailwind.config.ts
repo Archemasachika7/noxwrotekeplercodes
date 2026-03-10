@@ -31,9 +31,11 @@ const config: Config = {
       },
       animation: {
         "scroll-left": "scroll-left 30s linear infinite",
-        "fade-in": "fade-in 0.6s ease-out forwards",
-        "slide-up": "slide-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 1.0s ease-out forwards",
+        "slide-up": "slide-up 1.0s ease-out forwards",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "reveal-slow": "reveal-slow 1.4s ease-out forwards",
+        "scale-in": "scale-in 1.0s ease-out forwards",
       },
       keyframes: {
         "scroll-left": {
@@ -51,6 +53,14 @@ const config: Config = {
         "pulse-glow": {
           "0%, 100%": { opacity: "0.4" },
           "50%": { opacity: "0.8" },
+        },
+        "reveal-slow": {
+          "0%": { opacity: "0", transform: "translateY(40px)", filter: "blur(8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)", filter: "blur(0px)" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.9)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
         },
       },
     },

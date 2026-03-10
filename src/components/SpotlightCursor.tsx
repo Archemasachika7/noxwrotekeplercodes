@@ -29,8 +29,7 @@ export default function SpotlightCursor() {
     <div
       className="fixed inset-0 pointer-events-none z-[1] transition-opacity duration-300"
       style={{
-        background:
-          "radial-gradient(circle 300px at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(88,166,255,0.06) 0%, transparent 100%)",
+        background: "rgba(88,166,255,0.03)",
       }}
     />
   );
