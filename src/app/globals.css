@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: #F6F8FA;
+    --foreground: #24292F;
+    --card: #FFFFFF;
+    --card-foreground: #24292F;
+    --primary: #0969DA;
+    --primary-foreground: #FFFFFF;
+    --secondary: #1A7F37;
+    --secondary-foreground: #FFFFFF;
+    --muted: #F6F8FA;
+    --muted-foreground: #57606A;
+    --border: #D0D7DE;
+    --accent: #0969DA;
+    --accent-foreground: #FFFFFF;
+    --secondary-bg: #F0F3F6;
+  }
+
+  .dark {
+    --background: #0D1117;
+    --foreground: #E6EDF3;
+    --card: #1C2128;
+    --card-foreground: #E6EDF3;
+    --primary: #58A6FF;
+    --primary-foreground: #0D1117;
+    --secondary: #2EA043;
+    --secondary-foreground: #FFFFFF;
+    --muted: #161B22;
+    --muted-foreground: #8B949E;
+    --border: #30363D;
+    --accent: #58A6FF;
+    --accent-foreground: #0D1117;
+    --secondary-bg: #161B22;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+}
+
+/* Glass card */
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 40px rgba(88, 166, 255, 0.15);
+}
+
+.dark .glow {
+  box-shadow: 0 0 40px rgba(88, 166, 255, 0.1);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
