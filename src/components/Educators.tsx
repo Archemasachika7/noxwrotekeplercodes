@@ -24,7 +24,7 @@ export default function Educators() {
     fetch("/api/educators")
       .then((res) => res.json())
       .then(setEducators)
-      .catch(() => {});
+      .catch((err) => console.error("Failed to fetch educators:", err));
   }, []);
 
   return (

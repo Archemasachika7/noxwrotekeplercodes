@@ -64,11 +64,15 @@ export default function FloatingSymbols() {
   useEffect(() => {
     if (resolvedTheme !== "dark" || !mounted) return;
 
+    let rafId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = {
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight,
-      };
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        mouseRef.current = {
+          x: e.clientX / window.innerWidth,
+          y: e.clientY / window.innerHeight,
+        };
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -97,6 +101,7 @@ export default function FloatingSymbols() {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationRef.current);
+      cancelAnimationFrame(rafId);
     };
   }, [resolvedTheme, mounted]);
 

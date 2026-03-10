@@ -10,7 +10,7 @@ export async function GET() {
       yearsExperience: 12,
       company: "Google",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Led AI research teams building large-scale ML systems at Google Brain.",
     },
     {
@@ -21,7 +21,7 @@ export async function GET() {
       yearsExperience: 10,
       company: "CrowdStrike",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Former pentester and security architect with expertise in zero-trust systems.",
     },
     {
@@ -32,7 +32,7 @@ export async function GET() {
       yearsExperience: 8,
       company: "Coinbase",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Designed and deployed smart contract protocols handling $2B+ in transactions.",
     },
     {
@@ -43,7 +43,7 @@ export async function GET() {
       yearsExperience: 9,
       company: "NVIDIA",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Specialized in deep learning and GPU-accelerated model training pipelines.",
     },
     {
@@ -54,7 +54,7 @@ export async function GET() {
       yearsExperience: 11,
       company: "Stripe",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Built payment infrastructure handling millions of daily transactions at Stripe.",
     },
     {
@@ -65,7 +65,7 @@ export async function GET() {
       yearsExperience: 10,
       company: "Amazon",
       photo: "",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://linkedin.com/in/placeholder",
       bio: "Developed recommendation systems and data pipelines at Amazon scale.",
     },
   ];
