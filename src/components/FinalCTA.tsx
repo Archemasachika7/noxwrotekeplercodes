@@ -22,7 +22,7 @@ export default function FinalCTA() {
                 Start learning today and accelerate your career.
               </p>
               <a
-                href="#courses"
+                href="/auth"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] font-bold text-base hover:opacity-90 transition-opacity"
               >
                 Start Learning Today <ArrowRight className="w-5 h-5" />

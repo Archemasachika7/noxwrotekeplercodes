@@ -63,16 +63,16 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <ThemeToggle />
             <a
-              href="#"
+              href="/auth"
               className="px-4 py-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
             >
               Login
             </a>
             <a
-              href="#courses"
+              href="/auth"
               className="px-4 py-2 text-sm font-semibold rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90 transition-opacity"
             >
-              Start Learning
+              Sign Up
             </a>
           </div>
 
@@ -108,11 +108,11 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-2 mt-4 px-3">
-                <a href="#" className="py-2 text-sm font-medium text-center text-[var(--muted-foreground)] border border-[var(--border)] rounded-lg">
+                <a href="/auth" className="py-2 text-sm font-medium text-center text-[var(--muted-foreground)] border border-[var(--border)] rounded-lg">
                   Login
                 </a>
-                <a href="#courses" className="py-2 text-sm font-semibold text-center rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)]">
-                  Start Learning
+                <a href="/auth" className="py-2 text-sm font-semibold text-center rounded-lg bg-[var(--primary)] text-[var(--primary-foreground)]">
+                  Sign Up
                 </a>
               </div>
             </div>
