@@ -17,7 +17,7 @@ export default function SpotlightCursor() {
     <div
       className="fixed inset-0 pointer-events-none z-[1] transition-opacity duration-300"
       style={{
-        background: "rgba(88,166,255,0.03)",
+        background: "rgba(96,165,250,0.015)",
       }}
     />
   );

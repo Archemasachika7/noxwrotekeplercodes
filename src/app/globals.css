@@ -23,20 +23,20 @@
   }
 
   .dark {
-    --background: #08090A;
-    --foreground: #E6EDF3;
-    --card: #121314;
-    --card-foreground: #E6EDF3;
-    --primary: #58A6FF;
-    --primary-foreground: #0D1117;
-    --secondary: #2EA043;
-    --secondary-foreground: #FFFFFF;
-    --muted: #121314;
-    --muted-foreground: #8B949E;
-    --border: #222324;
-    --accent: #58A6FF;
-    --accent-foreground: #0D1117;
-    --secondary-bg: #121314;
+    --background: #09090b;
+    --foreground: #e4e4e7;
+    --card: rgba(255, 255, 255, 0.03);
+    --card-foreground: #e4e4e7;
+    --primary: #60a5fa;
+    --primary-foreground: #09090b;
+    --secondary: #34d399;
+    --secondary-foreground: #09090b;
+    --muted: rgba(255, 255, 255, 0.03);
+    --muted-foreground: #a1a1aa;
+    --border: rgba(255, 255, 255, 0.06);
+    --accent: #60a5fa;
+    --accent-foreground: #09090b;
+    --secondary-bg: rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -59,35 +59,45 @@ body {
   overflow-x: hidden;
 }
 
-/* Grid background */
-.grid-bg {
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.3;
-}
-
-/* Glass card */
+/* Glass card — glassmorphism */
 .glass-card {
   background: var(--card);
   border: 1px solid var(--border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.05) inset,
+    0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08) inset,
+    0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -100,7 +110,7 @@ body {
 }
 
 .dark .glow {
-  box-shadow: 0 0 40px rgba(88, 166, 255, 0.1);
+  box-shadow: 0 0 60px rgba(96, 165, 250, 0.08);
 }
 
 @layer utilities {
@@ -117,13 +127,6 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* Mobile/Tablet performance */
-@media (max-width: 768px) {
-  .grid-bg {
-    background-size: 40px 40px;
   }
 }
 

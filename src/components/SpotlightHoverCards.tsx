@@ -73,7 +73,7 @@ export function SpotlightCard({ children, className = "" }: SpotlightCardProps) 
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
-      className={`relative overflow-hidden rounded-xl border border-white/10 bg-[var(--card)] group ${className}`}
+      className={`relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)] group ${className}`}
     >
       {/* ── Spotlight gradient layer (behind content) ────────── */}
       <motion.div
