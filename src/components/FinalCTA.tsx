@@ -14,10 +14,10 @@ export default function FinalCTA() {
               <div className="w-16 h-16 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center mx-auto mb-6">
                 <Rocket className="w-8 h-8 text-[var(--primary)]" />
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--foreground)] tracking-tight mb-4">
+              <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-bold text-[var(--foreground)] tracking-tight mb-4">
                 Transform Your Learning Journey
               </h2>
-              <p className="text-lg sm:text-xl text-[var(--muted-foreground)] max-w-xl mx-auto mb-8">
+              <p className="text-base text-[var(--muted-foreground)] max-w-xl mx-auto mb-8">
                 Join 12,000+ students who are building the future with code.
                 Start learning today and accelerate your career.
               </p>

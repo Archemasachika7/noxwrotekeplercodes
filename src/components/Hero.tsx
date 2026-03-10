@@ -19,16 +19,16 @@ export default function Hero() {
               New cohort starting soon
             </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-[var(--foreground)]">
+            <h1 className="text-[40px] sm:text-[48px] lg:text-[56px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--foreground)]">
               Become The{" "}
               <span className="text-[var(--primary)]">Software Engineer</span>
               <br />
               That Companies Want To Hire
             </h1>
 
-            <p className="mt-6 text-lg sm:text-xl text-[var(--muted-foreground)] max-w-xl leading-relaxed">
+            <p className="mt-6 text-base text-[var(--muted-foreground)] max-w-xl leading-relaxed">
               Master AI, Machine Learning, Cybersecurity, Blockchain, and Software
-              Engineering through real-world projects and industry mentors.
+              Engineering through real-world learning.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8">

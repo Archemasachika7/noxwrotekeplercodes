@@ -20,10 +20,10 @@ export default function FreeContent() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               200+ Free <span className="text-[var(--primary)]">Coding Tutorials</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base text-[var(--muted-foreground)]">
               Start learning for free with our extensive library of video tutorials.
             </p>
           </div>

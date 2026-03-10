@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { label: "Courses", href: "#courses" },
   { label: "Live Cohorts", href: "#live-cohorts" },
-  { label: "Educators", href: "#why-kepler" },
+  { label: "Educators", href: "#educators" },
   { label: "Community", href: "#community" },
-  { label: "Resources", href: "#free-content" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Resources", href: "#free-content" },
 ];
 
 export default function Navbar() {

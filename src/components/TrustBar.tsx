@@ -13,7 +13,7 @@ export default function TrustBar() {
     <section className="py-16 border-y border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
-          <p className="text-center text-sm sm:text-base font-medium text-[var(--muted-foreground)] mb-8 tracking-wide uppercase">
+          <p className="text-center text-sm font-medium text-[var(--muted-foreground)] mb-8 tracking-wide uppercase">
             Our students work at top companies worldwide
           </p>
         </FadeIn>
@@ -32,7 +32,7 @@ export default function TrustBar() {
                 key={`${company}-${i}`}
                 className="flex-shrink-0 px-6 py-3 rounded-lg border border-[var(--border)] bg-[var(--card)]"
               >
-                <span className="text-sm sm:text-base font-semibold text-[var(--muted-foreground)] whitespace-nowrap">
+                <span className="text-sm font-semibold text-[var(--muted-foreground)] whitespace-nowrap">
                   {company}
                 </span>
               </div>

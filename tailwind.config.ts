@@ -36,10 +36,6 @@ const config: Config = {
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "reveal-slow": "reveal-slow 1.4s ease-out forwards",
         "scale-in": "scale-in 1.0s ease-out forwards",
-        "blob-1": "blob-1 20s ease-in-out infinite",
-        "blob-2": "blob-2 25s ease-in-out infinite",
-        "blob-3": "blob-3 22s ease-in-out infinite",
-        "blob-4": "blob-4 18s ease-in-out infinite",
       },
       keyframes: {
         "scroll-left": {
@@ -65,28 +61,6 @@ const config: Config = {
         "scale-in": {
           "0%": { opacity: "0", transform: "scale(0.9)" },
           "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        "blob-1": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(40px, -60px) scale(1.1)" },
-          "50%": { transform: "translate(-30px, 40px) scale(0.95)" },
-          "75%": { transform: "translate(50px, 20px) scale(1.05)" },
-        },
-        "blob-2": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "25%": { transform: "translate(-50px, 30px) scale(1.05)" },
-          "50%": { transform: "translate(40px, -50px) scale(1.1)" },
-          "75%": { transform: "translate(-20px, -30px) scale(0.95)" },
-        },
-        "blob-3": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%": { transform: "translate(30px, -40px) scale(1.08)" },
-          "66%": { transform: "translate(-40px, 30px) scale(0.92)" },
-        },
-        "blob-4": {
-          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
-          "33%": { transform: "translate(-60px, 20px) scale(1.1)" },
-          "66%": { transform: "translate(30px, -50px) scale(0.9)" },
         },
       },
     },

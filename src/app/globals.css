@@ -120,15 +120,8 @@ body {
   }
 }
 
-/* Mobile/Tablet performance: lighter animations */
+/* Mobile/Tablet performance */
 @media (max-width: 768px) {
-  .animate-blob-1,
-  .animate-blob-2,
-  .animate-blob-3,
-  .animate-blob-4 {
-    animation-duration: 30s !important;
-  }
-
   .grid-bg {
     background-size: 40px 40px;
   }
@@ -141,7 +134,7 @@ body {
   -webkit-transform: translateZ(0);
 }
 
-/* Touch-friendly tap targets */
+/* Touch-friendly tap targets on mobile */
 @media (max-width: 768px) {
   button,
   a {
