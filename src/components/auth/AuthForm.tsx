@@ -71,12 +71,15 @@ const oauthProviders = [
 /*  AuthForm Component                                                  */
 /* ------------------------------------------------------------------ */
 export default function AuthForm() {
-  const [mode, setMode] = useState<"signin" | "magic">("signin");
+  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [spinnerIndex, setSpinnerIndex] = useState(0);
-  const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const emailRef = useRef<HTMLInputElement>(null);
 
   // CLI spinner animation
@@ -96,18 +99,86 @@ export default function AuthForm() {
     []
   );
 
-  const handleMagicLink = useCallback(
+  const handleCredentialsSignIn = useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
-      if (!email.trim()) return;
+      if (!email.trim() || !password.trim()) return;
+
       setIsSubmitting(true);
-      // Simulate magic link send (actual implementation requires Email provider + DB)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setError("");
+
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
       setIsSubmitting(false);
-      setMagicLinkSent(true);
+
+      if (result?.error) {
+        setError(result.error);
+      } else {
+        window.location.href = "/onboarding";
+      }
     },
-    [email]
+    [email, password]
   );
+
+  const handleSignUp = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!name.trim() || !email.trim() || !password.trim()) return;
+
+      setIsSubmitting(true);
+      setError("");
+      setSuccess("");
+
+      try {
+        const res = await fetch("/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          setError(data.error || "Something went wrong.");
+          setIsSubmitting(false);
+          return;
+        }
+
+        setSuccess("Account created! Signing you in...");
+
+        const result = await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        });
+
+        setIsSubmitting(false);
+
+        if (result?.error) {
+          setError(result.error);
+          setSuccess("");
+        } else {
+          window.location.href = "/onboarding";
+        }
+      } catch {
+        setError("Something went wrong. Please try again.");
+        setIsSubmitting(false);
+      }
+    },
+    [name, email, password]
+  );
+
+  const focusRingStyle = (field: string) =>
+    focusedField === field
+      ? "0 0 0 1px rgba(96,165,250,0.5), 0 0 20px rgba(96,165,250,0.1)"
+      : "0 0 0 1px transparent";
+
+  const inputClass =
+    "w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-white text-sm font-mono placeholder:text-zinc-700 focus:outline-none transition-colors";
 
   return (
     <div className="relative flex flex-col justify-center items-center w-full h-full min-h-screen px-6 sm:px-12 bg-[#09090b]">
@@ -140,14 +211,38 @@ export default function AuthForm() {
         {/* Heading */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-white tracking-tight">
-            {mode === "magic" ? "Passwordless Sign In" : "Welcome back"}
+            {mode === "signup" ? "Create your account" : "Welcome back"}
           </h2>
           <p className="mt-2 text-sm text-zinc-500">
-            {mode === "magic"
-              ? "Enter your email to receive a magic link."
+            {mode === "signup"
+              ? "Sign up to start your engineering journey."
               : "Sign in to your engineering workspace."}
           </p>
         </div>
+
+        {/* Error / Success Messages */}
+        <AnimatePresence>
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="mb-4 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
+            >
+              {error}
+            </motion.div>
+          )}
+          {success && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="mb-4 px-4 py-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm"
+            >
+              {success}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <AnimatePresence mode="wait">
           {mode === "signin" ? (
@@ -158,6 +253,79 @@ export default function AuthForm() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.25 }}
             >
+              {/* Email / Password Sign In Form */}
+              <form onSubmit={handleCredentialsSignIn}>
+                <div className="flex flex-col gap-3">
+                  {/* Email */}
+                  <div className="relative">
+                    <motion.div
+                      className="absolute -inset-px rounded-lg pointer-events-none"
+                      animate={{ boxShadow: focusRingStyle("signin-email") }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <input
+                      ref={emailRef}
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onFocus={() => setFocusedField("signin-email")}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder="engineer@example.com"
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+
+                  {/* Password */}
+                  <div className="relative">
+                    <motion.div
+                      className="absolute -inset-px rounded-lg pointer-events-none"
+                      animate={{ boxShadow: focusRingStyle("signin-password") }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      onFocus={() => setFocusedField("signin-password")}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder="Password"
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
+                {/* Sign In Button */}
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  disabled={isSubmitting || !email.trim() || !password.trim()}
+                  className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <span className="font-mono flex items-center gap-2">
+                      <span className="inline-block w-4 text-center">
+                        [{spinnerFrames[spinnerIndex]}]
+                      </span>
+                      Authenticating...
+                    </span>
+                  ) : (
+                    "Sign In"
+                  )}
+                </motion.button>
+              </form>
+
+              {/* Divider */}
+              <div className="flex items-center gap-3 my-6">
+                <div className="flex-1 h-px bg-zinc-800" />
+                <span className="text-xs text-zinc-600 font-mono uppercase tracking-widest">
+                  or
+                </span>
+                <div className="flex-1 h-px bg-zinc-800" />
+              </div>
+
               {/* OAuth Buttons */}
               <div className="flex flex-col gap-3">
                 {oauthProviders.map((provider) => (
@@ -181,6 +349,118 @@ export default function AuthForm() {
                 ))}
               </div>
 
+              {/* Switch to sign up */}
+              <p className="mt-6 text-center text-sm text-zinc-600">
+                Don&apos;t have an account?{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMode("signup");
+                    setError("");
+                    setSuccess("");
+                  }}
+                  className="text-blue-400 hover:text-blue-300 font-medium transition-colors cursor-pointer"
+                >
+                  Sign Up
+                </button>
+              </p>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="signup"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.25 }}
+            >
+              {/* Email / Password Sign Up Form */}
+              <form onSubmit={handleSignUp}>
+                <div className="flex flex-col gap-3">
+                  {/* Name */}
+                  <div className="relative">
+                    <motion.div
+                      className="absolute -inset-px rounded-lg pointer-events-none"
+                      animate={{ boxShadow: focusRingStyle("signup-name") }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      onFocus={() => setFocusedField("signup-name")}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder="Full name"
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="relative">
+                    <motion.div
+                      className="absolute -inset-px rounded-lg pointer-events-none"
+                      animate={{ boxShadow: focusRingStyle("signup-email") }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onFocus={() => setFocusedField("signup-email")}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder="engineer@example.com"
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+
+                  {/* Password */}
+                  <div className="relative">
+                    <motion.div
+                      className="absolute -inset-px rounded-lg pointer-events-none"
+                      animate={{ boxShadow: focusRingStyle("signup-password") }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      onFocus={() => setFocusedField("signup-password")}
+                      onBlur={() => setFocusedField(null)}
+                      placeholder="Password (min 6 characters)"
+                      required
+                      minLength={6}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
+                {/* Sign Up Button */}
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                  disabled={
+                    isSubmitting ||
+                    !name.trim() ||
+                    !email.trim() ||
+                    !password.trim()
+                  }
+                  className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                >
+                  {isSubmitting ? (
+                    <span className="font-mono flex items-center gap-2">
+                      <span className="inline-block w-4 text-center">
+                        [{spinnerFrames[spinnerIndex]}]
+                      </span>
+                      Creating account...
+                    </span>
+                  ) : (
+                    "Create Account"
+                  )}
+                </motion.button>
+              </form>
+
               {/* Divider */}
               <div className="flex items-center gap-3 my-6">
                 <div className="flex-1 h-px bg-zinc-800" />
@@ -190,143 +470,44 @@ export default function AuthForm() {
                 <div className="flex-1 h-px bg-zinc-800" />
               </div>
 
-              {/* Magic Link */}
-              <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-                onClick={() => setMode("magic")}
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 transition-all duration-200 cursor-pointer"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                Sign in with Magic Link
-              </motion.button>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="magic"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.25 }}
-            >
-              {magicLinkSent ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-8"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-emerald-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    Check your inbox
-                  </h3>
-                  <p className="text-sm text-zinc-500">
-                    We sent a magic link to{" "}
-                    <span className="text-zinc-300 font-mono">{email}</span>
-                  </p>
-                  <button
-                    onClick={() => {
-                      setMagicLinkSent(false);
-                      setMode("signin");
-                    }}
-                    className="mt-6 text-xs text-zinc-600 hover:text-zinc-400 transition-colors cursor-pointer"
-                  >
-                    ← Back to sign in
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleMagicLink}>
-                  {/* Email input with focus spotlight */}
-                  <div className="relative">
-                    <motion.div
-                      className="absolute -inset-px rounded-lg pointer-events-none"
-                      animate={{
-                        boxShadow:
-                          focusedField === "email"
-                            ? "0 0 0 1px rgba(96,165,250,0.5), 0 0 20px rgba(96,165,250,0.1)"
-                            : "0 0 0 1px transparent",
-                      }}
-                      transition={{ duration: 0.2 }}
-                    />
-                    <input
-                      ref={emailRef}
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      onFocus={() => setFocusedField("email")}
-                      onBlur={() => setFocusedField(null)}
-                      placeholder="engineer@example.com"
-                      required
-                      className="w-full px-4 py-3 rounded-lg bg-zinc-900 border border-zinc-800 text-white text-sm font-mono placeholder:text-zinc-700 focus:outline-none transition-colors"
-                    />
-                  </div>
-
-                  {/* Dim overlay when focused */}
-                  <AnimatePresence>
-                    {focusedField && (
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/20 pointer-events-none z-[-1]"
-                      />
-                    )}
-                  </AnimatePresence>
-
-                  {/* Submit button with CLI spinner */}
+              {/* OAuth Buttons */}
+              <div className="flex flex-col gap-3">
+                {oauthProviders.map((provider) => (
                   <motion.button
-                    type="submit"
+                    key={provider.id}
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    disabled={isSubmitting || !email.trim()}
-                    className="mt-4 flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    onClick={() => handleOAuthSignIn(provider.id)}
+                    disabled={isSubmitting}
+                    className={`
+                      flex items-center justify-center gap-3 w-full px-4 py-3 rounded-lg
+                      text-sm font-medium transition-all duration-200 cursor-pointer
+                      disabled:opacity-50 disabled:cursor-not-allowed
+                      ${provider.bgClass}
+                      ${provider.primary ? "ring-1 ring-white/10" : ""}
+                    `}
                   >
-                    {isSubmitting ? (
-                      <span className="font-mono flex items-center gap-2">
-                        <span className="inline-block w-4 text-center">
-                          [{spinnerFrames[spinnerIndex]}]
-                        </span>
-                        Authenticating...
-                      </span>
-                    ) : (
-                      "Send Magic Link"
-                    )}
+                    {provider.icon}
+                    <span>{provider.label}</span>
                   </motion.button>
+                ))}
+              </div>
 
-                  <button
-                    type="button"
-                    onClick={() => setMode("signin")}
-                    className="mt-4 w-full text-xs text-zinc-600 hover:text-zinc-400 transition-colors cursor-pointer"
-                  >
-                    ← Back to all sign-in options
-                  </button>
-                </form>
-              )}
+              {/* Switch to sign in */}
+              <p className="mt-6 text-center text-sm text-zinc-600">
+                Already have an account?{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMode("signin");
+                    setError("");
+                    setSuccess("");
+                  }}
+                  className="text-blue-400 hover:text-blue-300 font-medium transition-colors cursor-pointer"
+                >
+                  Sign In
+                </button>
+              </p>
             </motion.div>
           )}
         </AnimatePresence>

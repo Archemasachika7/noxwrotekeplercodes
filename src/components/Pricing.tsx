@@ -98,7 +98,8 @@ export default function Pricing() {
                   </li>
                 ))}
               </ul>
-              <button
+              <a
+                href="/auth"
                 className={`w-full py-3 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 transition-opacity ${
                   plan.popular
                     ? "bg-[var(--primary)] text-[var(--primary-foreground)] hover:opacity-90"
@@ -106,7 +107,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.cta} <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </motion.div>
           ))}
         </StaggerContainer>
