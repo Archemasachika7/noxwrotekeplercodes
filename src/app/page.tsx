@@ -24,10 +24,16 @@ import Footer from "@/components/Footer";
 import { GridBackground } from "@/components/GridBackground";
 import SpotlightCursor from "@/components/SpotlightCursor";
 import FloatingSymbols from "@/components/FloatingSymbols";
+import TerminalBootLoader from "@/components/TerminalBootLoader";
+import SpotlightHoverCards from "@/components/SpotlightHoverCards";
+import GitBranchTimeline from "@/components/GitBranchTimeline";
+import InteractiveCodeEditor from "@/components/InteractiveCodeEditor";
 
 export default function Home() {
   return (
     <>
+      {/* Full-screen terminal boot-up entry animation */}
+      <TerminalBootLoader />
       <GridBackground />
       <FloatingSymbols />
       <SpotlightCursor />
@@ -40,13 +46,19 @@ export default function Home() {
         <PlatformPreview />
         <VideoSection />
         <Courses />
+        {/* Spotlight Hover Cards — flashlight mouse-follow effect */}
+        <SpotlightHoverCards />
         <LiveCourses />
         <Educators />
         <WhyKeplerCodes />
+        {/* Git-Branch Timeline — GSAP scroll-triggered line draw */}
+        <GitBranchTimeline />
         <Projects />
         <Stats />
         <Testimonials />
         <FreeContent />
+        {/* Interactive Code Editor — Monaco + terminal drawer */}
+        <InteractiveCodeEditor />
         <Community />
         <Certifications />
         <Pricing />
