@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Terminal, Shield } from "lucide-react";
+import NeuralBackground from "./NeuralBackground";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      {/* Neural network particle grid */}
+      <NeuralBackground className="opacity-30" particleCount={70} connectionDistance={110} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
           <motion.div

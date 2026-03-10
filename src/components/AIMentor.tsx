@@ -3,11 +3,15 @@
 import { FadeIn } from "./MotionWrappers";
 import { motion } from "framer-motion";
 import { Bot, Send, Sparkles } from "lucide-react";
+import NeuralBackground from "./NeuralBackground";
 
 export default function AIMentor() {
   return (
-    <section className="py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 relative overflow-hidden">
+      {/* Neural network particle background */}
+      <NeuralBackground className="opacity-40" particleCount={60} connectionDistance={100} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <div>
@@ -36,6 +40,63 @@ export default function AIMentor() {
                   Personalized learning suggestions
                 </li>
               </ul>
+
+              {/* Ambient data visualization — wireframe truss */}
+              <div className="mt-8">
+                <svg
+                  viewBox="0 0 240 60"
+                  className="w-60 h-auto opacity-30"
+                  aria-hidden="true"
+                >
+                  <motion.g
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "120px 30px" }}
+                  >
+                    {/* Wireframe structural truss lines */}
+                    {[
+                      [0, 30, 40, 0],
+                      [40, 0, 80, 30],
+                      [80, 30, 40, 60],
+                      [40, 60, 0, 30],
+                      [80, 30, 120, 0],
+                      [120, 0, 160, 30],
+                      [160, 30, 120, 60],
+                      [120, 60, 80, 30],
+                      [160, 30, 200, 0],
+                      [200, 0, 240, 30],
+                      [240, 30, 200, 60],
+                      [200, 60, 160, 30],
+                    ].map(([x1, y1, x2, y2], i) => (
+                      <line
+                        key={i}
+                        x1={x1}
+                        y1={y1}
+                        x2={x2}
+                        y2={y2}
+                        stroke="var(--primary)"
+                        strokeWidth="0.5"
+                        opacity="0.5"
+                      />
+                    ))}
+                    {/* Nodes */}
+                    {[
+                      [0, 30], [40, 0], [40, 60], [80, 30],
+                      [120, 0], [120, 60], [160, 30],
+                      [200, 0], [200, 60], [240, 30],
+                    ].map(([cx, cy], i) => (
+                      <circle
+                        key={i}
+                        cx={cx}
+                        cy={cy}
+                        r="2"
+                        fill="var(--primary)"
+                        opacity="0.6"
+                      />
+                    ))}
+                  </motion.g>
+                </svg>
+              </div>
             </div>
           </FadeIn>
 
@@ -72,11 +133,8 @@ export default function AIMentor() {
                   </div>
                   <div className="rounded-lg bg-[var(--muted)] px-3 py-2 text-sm text-[var(--foreground)] max-w-[80%]">
                     <p className="mb-2">Great question! Here&apos;s a clean BST implementation:</p>
-                    <div className="bg-[var(--background)] rounded-md p-2 font-mono text-xs">
-                      <div className="text-[var(--primary)]">class</div>
-                      <div>
-                        <span className="text-[var(--primary)]"> Node</span>:
-                      </div>
+                    <div className="bg-[var(--background)] rounded-md p-2 font-mono text-xs text-[#8b949e]">
+                      <div><span className="text-[var(--primary)]">class</span> <span className="text-[var(--primary)]">Node</span>:</div>
                       <div className="pl-4">
                         <span className="text-[var(--primary)]">def</span> __init__(self, val):
                       </div>
