@@ -140,10 +140,11 @@ export default function VideoSection() {
               className="relative w-full max-w-4xl rounded-xl overflow-hidden border border-[var(--border)] bg-[#08090A] shadow-2xl shadow-[#58A6FF]/10"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Video iframe */}
+              {/* Video iframe — key forces remount when mute state changes */}
               <div className="relative aspect-video">
                 <iframe
-                  src={`${modalVideo.embedUrl}&autoplay=1&mute=${isMuted ? 1 : 0}`}
+                  key={`${modalVideo.id}-${isMuted}`}
+                  src={`${modalVideo.embedUrl}${modalVideo.embedUrl.includes("?") ? "&" : "?"}autoplay=1&mute=${isMuted ? 1 : 0}`}
                   title={modalVideo.title}
                   className="absolute inset-0 w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

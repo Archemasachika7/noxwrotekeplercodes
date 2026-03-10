@@ -164,10 +164,10 @@ export default function NeuralBackground({
   }, [connectionDistance, initParticles]);
 
   return (
-    <div className={`absolute inset-0 pointer-events-auto ${className}`}>
+    <div className={`absolute inset-0 pointer-events-none ${className}`}>
       <canvas
         ref={canvasRef}
-        className="w-full h-full"
+        className="w-full h-full pointer-events-auto"
         style={{ display: "block" }}
       />
     </div>

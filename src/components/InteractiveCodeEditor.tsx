@@ -56,6 +56,12 @@ R² Score: 0.6552
 Prediction for X=6: 5.40
 \`\`\``;
 
+const difficultyColors: Record<string, string> = {
+  Easy: "bg-green-500/20 text-green-500",
+  Medium: "bg-yellow-500/20 text-yellow-500",
+  Hard: "bg-red-500/20 text-red-500",
+};
+
 const problemConstraints = [
   "Use NumPy for data generation",
   "Use scikit-learn LinearRegression",
@@ -225,7 +231,7 @@ export default function InteractiveCodeEditor() {
                       {problemTitle}
                     </h3>
                   </div>
-                  <span className="inline-block px-2 py-0.5 text-[10px] font-semibold rounded-full bg-yellow-500/20 text-yellow-500 mb-4">
+                  <span className={`inline-block px-2 py-0.5 text-[10px] font-semibold rounded-full ${difficultyColors[problemDifficulty] ?? "bg-yellow-500/20 text-yellow-500"} mb-4`}>
                     {problemDifficulty}
                   </span>
                   <div className="text-xs text-[var(--muted-foreground)] leading-relaxed whitespace-pre-line mb-4">
