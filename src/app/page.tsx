@@ -1,10 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ScrollStory from "@/components/ScrollStory";
+import CodeEditorDemo from "@/components/CodeEditorDemo";
 import TrustBar from "@/components/TrustBar";
 import PlatformPreview from "@/components/PlatformPreview";
 import VideoSection from "@/components/VideoSection";
 import Courses from "@/components/Courses";
 import LiveCourses from "@/components/LiveCourses";
+import Educators from "@/components/Educators";
 import WhyKeplerCodes from "@/components/WhyKeplerCodes";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
@@ -19,19 +22,26 @@ import AIMentor from "@/components/AIMentor";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import { GridBackground } from "@/components/GridBackground";
+import SpotlightCursor from "@/components/SpotlightCursor";
+import FloatingSymbols from "@/components/FloatingSymbols";
 
 export default function Home() {
   return (
     <>
       <GridBackground />
+      <FloatingSymbols />
+      <SpotlightCursor />
       <div className="relative z-10">
         <Navbar />
         <Hero />
         <TrustBar />
+        <ScrollStory />
+        <CodeEditorDemo />
         <PlatformPreview />
         <VideoSection />
         <Courses />
         <LiveCourses />
+        <Educators />
         <WhyKeplerCodes />
         <Projects />
         <Stats />
