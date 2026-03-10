@@ -17,7 +17,7 @@ const reasons = [
   { icon: GraduationCap, title: "Industry Mentors", desc: "Learn from engineers working at Google, Amazon, Microsoft, and more." },
   { icon: Briefcase, title: "Placement Preparation", desc: "Mock interviews, resume reviews, and direct hiring partner connections." },
   { icon: Code2, title: "Hands-on Coding Labs", desc: "Interactive coding environments with instant feedback and grading." },
-  { icon: Users, title: "Peer Community", desc: "Join 12,000+ learners in our active Discord and study groups." },
+  { icon: Users, title: "Peer Community", desc: "Join 10,000+ learners in our active Discord and study groups." },
 ];
 
 export default function WhyKeplerCodes() {

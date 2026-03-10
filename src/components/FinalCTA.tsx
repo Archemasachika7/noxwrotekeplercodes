@@ -18,7 +18,7 @@ export default function FinalCTA() {
                 Transform Your Learning Journey
               </h2>
               <p className="text-base text-[var(--muted-foreground)] max-w-xl mx-auto mb-8">
-                Join 12,000+ students who are building the future with code.
+                Join 10,000+ students who are building the future with code.
                 Start learning today and accelerate your career.
               </p>
               <a

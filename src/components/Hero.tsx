@@ -51,7 +51,7 @@ export default function Hero() {
             <div className="flex items-center gap-6 mt-10 text-sm text-[var(--muted-foreground)]">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--secondary)]" />
-                12,000+ Students
+                10,000+ Students
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)]" />

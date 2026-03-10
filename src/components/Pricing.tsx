@@ -8,7 +8,7 @@ const plans = [
   {
     name: "Free",
     price: "₹0",
-    period: "/month",
+    period: "forever",
     description: "Get started with basic tutorials",
     features: [
       "Access to 50+ free tutorials",
