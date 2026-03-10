@@ -30,10 +30,10 @@ export default function LiveCourses() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               Live <span className="text-[var(--primary)]">Cohorts</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base text-[var(--muted-foreground)]">
               Join instructor-led live sessions with real-time mentorship and peer learning.
             </p>
           </div>

@@ -17,7 +17,7 @@ const reasons = [
   { icon: GraduationCap, title: "Industry Mentors", desc: "Learn from engineers working at Google, Amazon, Microsoft, and more." },
   { icon: Briefcase, title: "Placement Preparation", desc: "Mock interviews, resume reviews, and direct hiring partner connections." },
   { icon: Code2, title: "Hands-on Coding Labs", desc: "Interactive coding environments with instant feedback and grading." },
-  { icon: Users, title: "Peer Community", desc: "Join 12,000+ learners in our active Discord and study groups." },
+  { icon: Users, title: "Peer Community", desc: "Join 10,000+ learners in our active Discord and study groups." },
 ];
 
 export default function WhyKeplerCodes() {
@@ -26,10 +26,10 @@ export default function WhyKeplerCodes() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               Why <span className="text-[var(--primary)]">Kepler Codes</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base text-[var(--muted-foreground)]">
               We don&apos;t just teach code — we build engineers.
             </p>
           </div>

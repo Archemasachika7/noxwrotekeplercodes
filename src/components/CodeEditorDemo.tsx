@@ -7,24 +7,13 @@ import { FadeIn } from "./MotionWrappers";
 
 const codeLines = [
   { text: "def train_model(data):", color: "keyword" },
-  { text: '    """Train a linear regression model."""', color: "string" },
   { text: "    model = LinearRegression()", color: "default" },
-  { text: "    model.fit(data.X, data.y)", color: "default" },
-  { text: "    score = model.score(data.X, data.y)", color: "default" },
-  { text: '    print(f"Model accuracy: {score:.2f}")', color: "default" },
+  { text: "    model.fit(data)", color: "default" },
   { text: "    return model", color: "keyword" },
-  { text: "", color: "default" },
-  { text: "# Load dataset and train", color: "comment" },
-  { text: "data = load_dataset('housing')", color: "default" },
-  { text: "model = train_model(data)", color: "default" },
-  { text: 'print("Training complete ✓")', color: "default" },
 ];
 
-const mockOutput = `Loading dataset 'housing'...
-Dataset loaded: 506 samples, 13 features
-Training model...
-Model accuracy: 0.94
-Training complete ✓`;
+const mockOutput = `Model Training successfully.
+Accuracy: 92%`;
 
 function syntaxHighlight(text: string) {
   if (text.trimStart().startsWith("#")) {
@@ -177,10 +166,10 @@ export default function CodeEditorDemo() {
             <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wider mb-3">
               Interactive Demo
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               Learn by <span className="text-[var(--primary)]">Writing Code</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base text-[var(--muted-foreground)]">
               Our platform features an integrated code editor with instant feedback.
             </p>
           </div>
@@ -223,7 +212,7 @@ export default function CodeEditorDemo() {
             </div>
 
             {/* Code area */}
-            <div className="p-4 min-h-[280px] bg-[var(--background)] font-mono text-sm">
+            <div className="p-4 min-h-[200px] bg-[var(--background)] font-mono text-[14px]">
               {codeLines.slice(0, displayedLines).map((line, i) => (
                 <div key={i} className="flex gap-3 leading-6">
                   <span className="text-[var(--muted-foreground)] select-none w-6 text-right text-xs leading-6">

@@ -7,7 +7,7 @@ import { Check, ArrowRight } from "lucide-react";
 const plans = [
   {
     name: "Free",
-    price: "$0",
+    price: "₹0",
     period: "forever",
     description: "Get started with basic tutorials",
     features: [
@@ -21,7 +21,7 @@ const plans = [
   },
   {
     name: "Pro",
-    price: "$29",
+    price: "₹15,000",
     period: "/month",
     description: "Full course access with projects",
     features: [
@@ -37,7 +37,7 @@ const plans = [
   },
   {
     name: "Bootcamp",
-    price: "$199",
+    price: "₹25,000",
     period: "/month",
     description: "Live mentorship and career support",
     features: [
@@ -60,10 +60,10 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               Simple, Transparent <span className="text-[var(--primary)]">Pricing</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base text-[var(--muted-foreground)]">
               Choose the plan that fits your learning goals. No hidden fees.
             </p>
           </div>

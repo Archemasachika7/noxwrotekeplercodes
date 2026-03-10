@@ -43,7 +43,7 @@ export default function Testimonials() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               What Our Students <span className="text-[var(--primary)]">Say</span>
             </h2>
           </div>

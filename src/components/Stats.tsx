@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { GraduationCap, FolderGit2, Handshake, TrendingUp } from "lucide-react";
 
 const stats = [
-  { icon: GraduationCap, value: 12000, suffix: "+", label: "Students", prefix: "" },
+  { icon: GraduationCap, value: 10000, suffix: "+", label: "Students", prefix: "" },
   { icon: FolderGit2, value: 200, suffix: "+", label: "Projects Built", prefix: "" },
   { icon: Handshake, value: 300, suffix: "+", label: "Hiring Partners", prefix: "" },
   { icon: TrendingUp, value: 92, suffix: "%", label: "Completion Rate", prefix: "" },
@@ -39,7 +39,7 @@ function Counter({ target, suffix, prefix }: { target: number; suffix: string; p
   }, [isInView, target]);
 
   return (
-    <span ref={ref} className="text-4xl sm:text-5xl font-extrabold text-[var(--foreground)]">
+    <span ref={ref} className="text-4xl sm:text-5xl font-bold text-[var(--foreground)]">
       {prefix}{count.toLocaleString()}{suffix}
     </span>
   );
@@ -51,7 +51,7 @@ export default function Stats() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-[28px] sm:text-[32px] font-semibold text-[var(--foreground)] tracking-tight">
               Student <span className="text-[var(--primary)]">Success</span> Stats
             </h2>
           </div>

@@ -68,7 +68,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Kepler Codes. All rights reserved.
           </p>
           <p className="text-xs text-[var(--muted-foreground)]">
-            Made with 💻 for developers, by developers.
+            Made with code for developers, by developers.
           </p>
         </div>
       </div>
