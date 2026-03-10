@@ -1,0 +1,88 @@
+import { NextResponse } from "next/server";
+
+const courses = [
+  {
+    id: "1",
+    title: "Complete AI & Deep Learning Masterclass",
+    category: "Artificial Intelligence",
+    instructor: "Dr. Sarah Chen",
+    duration: "12 weeks",
+    difficulty: "Advanced",
+    price: "$49",
+    image: "",
+  },
+  {
+    id: "2",
+    title: "Machine Learning with Python & TensorFlow",
+    category: "Machine Learning",
+    instructor: "Prof. James Wright",
+    duration: "10 weeks",
+    difficulty: "Intermediate",
+    price: "$39",
+    image: "",
+  },
+  {
+    id: "3",
+    title: "Ethical Hacking & Penetration Testing",
+    category: "Cybersecurity",
+    instructor: "Alex Rivera",
+    duration: "8 weeks",
+    difficulty: "Intermediate",
+    price: "$45",
+    image: "",
+  },
+  {
+    id: "4",
+    title: "Blockchain Development with Solidity",
+    category: "Blockchain Development",
+    instructor: "Maya Johnson",
+    duration: "8 weeks",
+    difficulty: "Intermediate",
+    price: "$39",
+    image: "",
+  },
+  {
+    id: "5",
+    title: "Full Stack Engineering with Next.js",
+    category: "Full Stack Engineering",
+    instructor: "David Kim",
+    duration: "14 weeks",
+    difficulty: "Beginner",
+    price: "$35",
+    image: "",
+  },
+  {
+    id: "6",
+    title: "Data Science & Analytics with Python",
+    category: "Data Science",
+    instructor: "Dr. Emily Park",
+    duration: "10 weeks",
+    difficulty: "Beginner",
+    price: "$29",
+    image: "",
+  },
+  {
+    id: "7",
+    title: "DSA Masterclass for Interviews",
+    category: "DSA & Algorithms",
+    instructor: "Rahul Mehta",
+    duration: "8 weeks",
+    difficulty: "Advanced",
+    price: "$35",
+    image: "",
+  },
+  {
+    id: "8",
+    title: "Neural Networks from Scratch",
+    category: "Artificial Intelligence",
+    instructor: "Dr. Sarah Chen",
+    duration: "6 weeks",
+    difficulty: "Advanced",
+    price: "$45",
+    image: "",
+  },
+];
+
+export async function GET() {
+  return NextResponse.json(courses);
+}
