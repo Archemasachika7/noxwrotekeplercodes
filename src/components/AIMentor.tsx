@@ -15,7 +15,7 @@ export default function AIMentor() {
                 <Sparkles className="w-3 h-3 text-[var(--primary)]" />
                 AI-Powered
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-6">
+              <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight mb-6">
                 Your Personal <span className="text-[var(--primary)]">AI Mentor</span>
               </h2>
               <p className="text-[var(--muted-foreground)] mb-6 leading-relaxed">

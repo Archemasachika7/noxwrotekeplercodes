@@ -60,10 +60,10 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Simple, Transparent <span className="text-[var(--primary)]">Pricing</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)]">
               Choose the plan that fits your learning goals. No hidden fees.
             </p>
           </div>

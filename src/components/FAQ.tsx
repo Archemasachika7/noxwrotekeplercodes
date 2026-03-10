@@ -44,7 +44,7 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Frequently Asked <span className="text-[var(--primary)]">Questions</span>
             </h2>
           </div>

@@ -78,7 +78,7 @@ function StoryStep({
         <span className="text-xs font-mono text-[var(--primary)] font-semibold mb-1 block">
           STEP {step.number}
         </span>
-        <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">
+        <h3 className="text-2xl font-bold text-[var(--foreground)] mb-2">
           {step.title}
         </h3>
         <p className="text-[var(--muted-foreground)] leading-relaxed max-w-md">
@@ -97,7 +97,7 @@ export default function ScrollStory() {
           <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wider mb-3">
             Your Journey
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
             From <span className="text-[var(--primary)]">Beginner</span> to{" "}
             <span className="text-[var(--primary)]">Hired</span>
           </h2>

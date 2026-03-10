@@ -108,7 +108,7 @@ export default function FloatingSymbols() {
   if (!mounted || resolvedTheme !== "dark") return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden hidden md:block">
       {items.map((item) => {
         const parallaxX = (mouseRef.current.x - 0.5) * 10;
         const parallaxY = (mouseRef.current.y - 0.5) * 10;

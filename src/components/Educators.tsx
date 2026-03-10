@@ -35,10 +35,10 @@ export default function Educators() {
             <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wider mb-3">
               Learn From The Best
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Industry <span className="text-[var(--primary)]">Educators</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)]">
               Our educators come from top tech companies with years of real-world experience.
             </p>
           </div>

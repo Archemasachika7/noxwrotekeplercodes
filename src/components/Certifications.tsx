@@ -18,7 +18,7 @@ export default function Certifications() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <FadeIn>
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-6">
+              <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight mb-6">
                 Earn <span className="text-[var(--primary)]">Certifications</span> That Matter
               </h2>
               <p className="text-[var(--muted-foreground)] mb-8">

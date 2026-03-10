@@ -22,7 +22,7 @@ export default function Comparison() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Kepler Codes vs <span className="text-[var(--muted-foreground)]">Traditional Platforms</span>
             </h2>
           </div>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, staggerItem } from "./MotionWrappers";
-import { Clock, User, ArrowRight } from "lucide-react";
+import { Clock, User, ArrowRight, GraduationCap } from "lucide-react";
 
 interface Course {
   id: string;
@@ -45,10 +45,10 @@ export default function Courses() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Industry-Ready <span className="text-[var(--primary)]">Courses</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)]">
               From fundamentals to advanced topics — built by engineers, for engineers.
             </p>
           </div>
@@ -84,7 +84,7 @@ export default function Courses() {
                 <div className="absolute inset-0 bg-[var(--card)] opacity-60" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-16 h-16 rounded-full bg-[var(--primary)]/20 flex items-center justify-center">
-                    <span className="text-2xl">🎓</span>
+                    <GraduationCap className="w-8 h-8 text-[var(--primary)]" />
                   </div>
                 </div>
               </div>

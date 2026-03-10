@@ -177,10 +177,10 @@ export default function CodeEditorDemo() {
             <p className="text-sm font-semibold text-[var(--primary)] uppercase tracking-wider mb-3">
               Interactive Demo
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Learn by <span className="text-[var(--primary)]">Writing Code</span>
             </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
+            <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)]">
               Our platform features an integrated code editor with instant feedback.
             </p>
           </div>
