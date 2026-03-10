@@ -141,7 +141,8 @@ export default function GitBranchTimeline() {
    */
   useEffect(() => {
     /* Dynamic import — GSAP + ScrollTrigger only needed on the client. */
-    let ctx: ReturnType<typeof import("gsap")["default"]["context"]> | undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let ctx: any;
 
     async function initGSAP() {
       const gsapModule = await import("gsap");

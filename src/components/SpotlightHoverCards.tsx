@@ -11,6 +11,7 @@
 
 import { useState, useRef, MouseEvent, ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import type { MotionStyle } from "framer-motion";
 import { FadeIn, StaggerContainer, staggerItem } from "./MotionWrappers";
 import { Clock, User, ArrowRight, Star } from "lucide-react";
 
@@ -77,10 +78,7 @@ export function SpotlightCard({ children, className = "" }: SpotlightCardProps) 
       {/* ── Spotlight gradient layer (behind content) ────────── */}
       <motion.div
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
-        style={{
-          background: useMotionValue("none"), // placeholder; overridden below
-          opacity: isHovered ? 1 : 0,
-        }}
+        style={{ opacity: isHovered ? 1 : 0 } as MotionStyle}
       >
         {/* We use an absolutely-positioned radial div driven by spring values */}
         <motion.div
