@@ -20,11 +20,13 @@ export default function Community() {
 
         <FadeIn delay={0.2}>
           <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-3">
-            {Array.from({ length: 24 }).map((_, i) => (
+            {Array.from({ length: 24 }).map((_, i) => {
+              const opacities = [0.7, 0.8, 0.9, 1, 0.75, 0.85, 0.95, 0.65, 0.7, 0.8, 0.9, 1, 0.75, 0.85, 0.95, 0.65, 0.7, 0.8, 0.9, 1, 0.75, 0.85, 0.95, 0.65];
+              return (
               <div
                 key={i}
                 className="aspect-square rounded-xl bg-[var(--card)] border border-[var(--border)] flex items-center justify-center text-lg"
-                style={{ opacity: 0.6 + Math.random() * 0.4 }}
+                style={{ opacity: opacities[i] }}
               >
                 <div className="w-full h-full rounded-xl bg-gradient-to-br from-[var(--primary)]/5 to-[var(--secondary)]/5 flex items-center justify-center">
                   <span className="text-2xl">
@@ -32,7 +34,8 @@ export default function Community() {
                   </span>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </FadeIn>
 
