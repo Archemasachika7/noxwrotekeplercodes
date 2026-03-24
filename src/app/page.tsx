@@ -28,45 +28,98 @@ import TerminalBootLoader from "@/components/TerminalBootLoader";
 import SpotlightHoverCards from "@/components/SpotlightHoverCards";
 import GitBranchTimeline from "@/components/GitBranchTimeline";
 import InteractiveCodeEditor from "@/components/InteractiveCodeEditor";
+import { FadeIn, SlideInLeft, SlideInRight } from "@/components/MotionWrappers";
 
 export default function Home() {
   return (
     <>
       {/* Full-screen terminal boot-up entry animation */}
       <TerminalBootLoader />
+      <div className="fixed inset-0 -z-10 bg-[#050508]" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(0,212,255,0.12),_transparent_45%),radial-gradient(circle_at_80%_20%,_rgba(77,159,255,0.12),_transparent_40%)]" />
       <GridBackground />
       <FloatingSymbols />
       <SpotlightCursor />
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-x-hidden">
         <Navbar />
-        <Hero />
-        <TrustBar />
-        <ScrollStory />
-        <CodeEditorDemo />
-        <PlatformPreview />
-        <VideoSection />
-        <Courses />
+        <FadeIn>
+          <Hero />
+        </FadeIn>
+        <SlideInLeft>
+          <TrustBar />
+        </SlideInLeft>
+        <SlideInRight>
+          <ScrollStory />
+        </SlideInRight>
+        <SlideInLeft>
+          <CodeEditorDemo />
+        </SlideInLeft>
+        <SlideInRight>
+          <PlatformPreview />
+        </SlideInRight>
+        <SlideInLeft>
+          <VideoSection />
+        </SlideInLeft>
+        <SlideInRight>
+          <Courses />
+        </SlideInRight>
         {/* Spotlight Hover Cards — flashlight mouse-follow effect */}
-        <SpotlightHoverCards />
-        <LiveCourses />
-        <Educators />
-        <WhyKeplerCodes />
+        <SlideInLeft>
+          <SpotlightHoverCards />
+        </SlideInLeft>
+        <SlideInRight>
+          <LiveCourses />
+        </SlideInRight>
+        <SlideInLeft>
+          <Educators />
+        </SlideInLeft>
+        <SlideInRight>
+          <WhyKeplerCodes />
+        </SlideInRight>
         {/* Git-Branch Timeline — GSAP scroll-triggered line draw */}
-        <GitBranchTimeline />
-        <Projects />
-        <Stats />
-        <Testimonials />
-        <FreeContent />
+        <SlideInLeft>
+          <GitBranchTimeline />
+        </SlideInLeft>
+        <SlideInRight>
+          <Projects />
+        </SlideInRight>
+        <SlideInLeft>
+          <Stats />
+        </SlideInLeft>
+        <SlideInRight>
+          <Testimonials />
+        </SlideInRight>
+        <SlideInLeft>
+          <FreeContent />
+        </SlideInLeft>
         {/* Interactive Code Editor — Monaco + terminal drawer */}
-        <InteractiveCodeEditor />
-        <Community />
-        <Certifications />
-        <Pricing />
-        <Comparison />
-        <FAQ />
-        <AIMentor />
-        <FinalCTA />
-        <Footer />
+        <SlideInRight>
+          <InteractiveCodeEditor />
+        </SlideInRight>
+        <SlideInLeft>
+          <Community />
+        </SlideInLeft>
+        <SlideInRight>
+          <Certifications />
+        </SlideInRight>
+        <SlideInLeft>
+          <Pricing />
+        </SlideInLeft>
+        <SlideInRight>
+          <Comparison />
+        </SlideInRight>
+        <SlideInLeft>
+          <FAQ />
+        </SlideInLeft>
+        <SlideInRight>
+          <AIMentor />
+        </SlideInRight>
+        <SlideInLeft>
+          <FinalCTA />
+        </SlideInLeft>
+        <FadeIn>
+          <Footer />
+        </FadeIn>
       </div>
     </>
   );
